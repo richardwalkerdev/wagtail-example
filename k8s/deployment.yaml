@@ -2,23 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: wagtail
-  name: wagtail
+    app: wagtail-example
+  name: wagtail-example
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wagtail
+      app: wagtail-example
   template:
     metadata:
       labels:
-        app: wagtail
+        app: wagtail-example
     spec:
       containers:
-        - image: image-registry.openshift-image-registry.svc:5000/my-pipeline/wagtail:latest
+        - image: image-registry.openshift-image-registry.svc:5000/pipeline-project/demo:latest
           imagePullPolicy: Always
-          name: wagtail
+          name: wagtail-example
           ports:
-            - containerPort: 8080
+            - containerPort: 8000
               protocol: TCP
-          env:
