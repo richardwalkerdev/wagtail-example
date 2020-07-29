@@ -15,9 +15,9 @@ spec:
         app: wagtail-example
     spec:
       containers:
-        - image: image-registry.openshift-image-registry.svc:5000/pipeline-project/demo:latest
+        - image: <image_registry>/<openshifti_project>/<image_name>:<image_tag>
           imagePullPolicy: Always
           name: wagtail-example
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
               protocol: TCP

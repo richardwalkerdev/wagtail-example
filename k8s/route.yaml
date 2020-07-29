@@ -7,7 +7,7 @@ metadata:
   name: wagtail-example
 spec:
   port:
-    targetPort: 8000-tcp
+    targetPort: 8080-tcp
   to:
     kind: Service
     name: wagtail-example

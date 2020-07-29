@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: wagtail-example-git-resource
+  namespace: wagtail-pipeline
+spec:
+  type: git
+  params:
+    - name: url
+      value: 'https://github.com/richardwalkerdev/wagtail-example.git'
+    - name: revision
+      value: master
