@@ -159,9 +159,9 @@ oc create -f tkn_pipeline.yaml
 
 ### Running it
 
-IMPORTANT: The `deployment-name` parameter **MUST** natch the name of the deployment as define in `k8s/deployment.yaml`.
+IMPORTANT: The `deployment-name` parameter **MUST** match the name of the deployment as defined in `k8s/deployment.yaml`.
 
-The following command kicks of the pipeline using the resources defines earlier and specifying the correct deployment name:
+The following command kicks of the pipeline using the resources defined earlier and specifying the correct deployment name:
 
 ```text
 tkn pipeline start build-and-deploy -r git-repo-resource=wagtail-example-git-resource -r target-image-resource=wagtail-example-image-resource -p deployment-name=wagtail-example
