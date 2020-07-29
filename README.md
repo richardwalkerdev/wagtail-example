@@ -170,7 +170,8 @@ tkn pipeline start build-and-deploy -r git-repo-resource=wagtail-example-git-res
 It will tell you how to tail the logs from the cli using the `tkn` command, it's self-intuitive to use the web console.
 
 
-### Screen shots
-
+### Screen Shots
 
 ![Image of Pipeline](screenshots/pipeline.png?raw=true)
+![Image of Deployment](screenshots/deployment.png?raw=true)
+![Image of Application](screenshots/app.png?raw=true)
