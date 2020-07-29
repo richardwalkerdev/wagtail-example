@@ -172,4 +172,5 @@ It will tell you how to tail the logs from the cli using the `tkn` command, it's
 
 ### Screen shots
 
-![Image of Pipeline](https://github.com/richardwalkerdev/wagtail-example/tree/master/screenshots/pipeline.png)
+
+![Image of Pipeline](screenshots/pipeline.png?raw=true)
