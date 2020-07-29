@@ -3,9 +3,11 @@
 This repo is for testing OpenShift Pipelines. It uses a Django based Wagtail CMS app, nothing more that a `wagtail start example .`.
 
 First attempts at deploying this failed due to `django.core.exceptions.ImproperlyConfigured` SQLite versions found in the standard s2i-python36 image. 
-The solution to this was to build a s2s-python38 image from https://github.com/sclorg/s2i-python-container.git and add a tweaked cluster task to use my newser image.
+The solution to this was to build a s2s-python38 image from https://github.com/sclorg/s2i-python-container.git and add a tweaked cluster task to use my newer image.
 
 The OpenShift pipeline process was taken and adapted from https://docs.openshift.com/container-platform/4.5/pipelines/creating-applications-with-cicd-pipelines.html 
+
+However, it took quite some effort to get to understanding and having a working build pipeline using something other that the typical Java or Node.js examples. This exercise has served me well as a start-for-ten, using S2I and OpenShift Pipeline for current Python projects. 
 
 ### Building Python from sclorg
 
@@ -105,7 +107,7 @@ sudo dnf copr enable chmouel/tektoncd-cli
 sudo dnf install tektoncd-cli -y
 ```
 
-### Custom CLuster Task
+### Custom Cluster Task
 
 As I said, the standard s2i image available is out-of-date, so I copied and modified the existing `ClusterTask` to use my `quay.io/richardwalkerdev/s2i-python38-container` image. 
 
@@ -128,7 +130,7 @@ steps:
 
 
 ```text
-oc create -f tkn_cluster_task
+oc create -f tkn_cluster_task.yaml
 ```
 
 ### Tasks
@@ -164,3 +166,6 @@ The following command kicks of the pipeline using the resources defines earlier 
 ```text
 tkn pipeline start build-and-deploy -r git-repo-resource=wagtail-example-git-resource -r target-image-resource=wagtail-example-image-resource -p deployment-name=wagtail-example
 ```
+
+It will tell you how to tail the logs from the cli using the `tkn` command, it's self-intuitive to use the web console.
+
